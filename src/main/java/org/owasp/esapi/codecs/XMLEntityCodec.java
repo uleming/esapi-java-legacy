@@ -45,7 +45,10 @@ public class XMLEntityCodec extends Codec
 {
 	private static final String ALPHA_NUMERIC_STR = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	private static final String UNENCODED_STR = ALPHA_NUMERIC_STR + " \t";
+	private static final String UNENCODED_STR_CYRILIC = UNENCODED_STR + "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+	private static final String UNENCODED_STR_FULL = UNENCODED_STR_CYRILIC + ":;-/";
 	private static final Set<Character> UNENCODED_SET = CollectionsUtil.strToUnmodifiableSet(UNENCODED_STR);
+	private static final Set<Character> UNENCODED_STR_FULL_SET = CollectionsUtil.strToUnmodifiableSet(UNENCODED_STR_FULL);
 	private static final HashTrie<Character> entityToCharacterMap;
 
 	static
@@ -72,7 +75,8 @@ public class XMLEntityCodec extends Codec
 			return c.toString();
 
 		// check for unencoded characters
-		if(UNENCODED_SET.contains(c))
+		
+		if(UNENCODED_STR_FULL_SET.contains(c))
 			return c.toString();
 
 		return "&#x" + Integer.toHexString(c.charValue()) + ";";
