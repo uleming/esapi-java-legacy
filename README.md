@@ -1,3 +1,15 @@
+Сборка для PID (http://community.pentaho.com/projects/data-integration/)
+
+При выводе данных в XML Output все кирилические символы преобразутся в escape последовательности.
+Баг отмечен здесь http://jira.pentaho.com/browse/PDI-11184
+
+для сборки добавить 
+mvn package -Dmaven.test.skip=true 
+т.к. тест на проверку espace последовательностей проваливается.
+
+для других проектов использовать оригинальный репозиторий https://github.com/ESAPI/esapi-java-legacy 
+
+
 Enterprise Security API for Java (Legacy)
 =================
 <table border=0>
