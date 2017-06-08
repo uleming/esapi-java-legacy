@@ -1,4 +1,4 @@
-Сборка для PID (http://community.pentaho.com/projects/data-integration/)
+Сборка для PDI Pentaho Data-Integration Suite (http://community.pentaho.com/projects/data-integration/)
 
 При выводе данных в XML Output все кирилические символы преобразутся в escape последовательности.
 Баг отмечен здесь http://jira.pentaho.com/browse/PDI-11184
